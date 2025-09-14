@@ -4,9 +4,8 @@ import fr.moonpowered.common.identifier.Identifiable;
 
 public interface MutableIdentifiable<T> extends Identifiable<T> {
 
-    @Override
-    T getId();
+  @Override
+  T getId();
 
-    void setId(final T id);
-
+  void setId(final T id);
 }

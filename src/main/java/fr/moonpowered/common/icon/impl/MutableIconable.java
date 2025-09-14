@@ -1,12 +1,11 @@
 package fr.moonpowered.common.icon.impl;
 
-import fr.kurai.dream.icon.Iconable;
+import fr.moonpowered.common.icon.Iconable;
 
 public interface MutableIconable<T> extends Iconable<T> {
 
-    @Override
-    T getIcon();
+  @Override
+  T getIcon();
 
-    void setIcon(final T icon);
-
+  void setIcon(final T icon);
 }

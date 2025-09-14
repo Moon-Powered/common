@@ -6,6 +6,5 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Identifier {
 
-    String value();
-
+  String value();
 }

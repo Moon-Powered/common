@@ -4,9 +4,8 @@ import fr.moonpowered.common.name.Nameable;
 
 public interface MutableNameable<T> extends Nameable<T> {
 
-    @Override
-    T getName();
+  @Override
+  T getName();
 
-    void setName(final T name);
-
+  void setName(final T name);
 }

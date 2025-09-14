@@ -4,9 +4,8 @@ import fr.moonpowered.common.description.Describable;
 
 public interface MutableDescribable<T> extends Describable<T> {
 
-    @Override
-    T getDescription();
+  @Override
+  T getDescription();
 
-    void setDescription(final T description);
-
+  void setDescription(final T description);
 }

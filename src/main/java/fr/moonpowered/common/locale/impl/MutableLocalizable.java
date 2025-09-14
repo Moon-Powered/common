@@ -1,9 +1,9 @@
 package fr.moonpowered.common.locale.impl;
 
-import fr.kurai.dream.locale.Localizable;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Locale;
+
+import fr.moonpowered.common.locale.Localizable;
+import org.jetbrains.annotations.NotNull;
 
 public interface MutableLocalizable extends Localizable {
 

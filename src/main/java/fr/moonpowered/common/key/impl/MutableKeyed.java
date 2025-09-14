@@ -4,9 +4,8 @@ import fr.moonpowered.common.key.Keyed;
 
 public interface MutableKeyed<T> extends Keyed<T> {
 
-    @Override
-    T getKey();
+  @Override
+  T getKey();
 
-    void setKey(final T key);
-
+  void setKey(final T key);
 }

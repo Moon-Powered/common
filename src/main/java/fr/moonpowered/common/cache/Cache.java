@@ -1,13 +1,12 @@
 package fr.moonpowered.common.cache;
 
 import fr.moonpowered.common.identifier.Identifiable;
+import java.util.Collection;
+import java.util.function.Predicate;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.UnmodifiableView;
-
-import java.util.Collection;
-import java.util.function.Predicate;
 
 public interface Cache<I, E extends Identifiable<I>> {
 
