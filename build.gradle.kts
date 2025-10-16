@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    signing
 }
 
 group = "fr.moonpowered.common"
@@ -35,17 +36,52 @@ publishing {
             groupId = project.group.toString()
             artifactId = project.name
             version = project.version.toString()
+
+            pom {
+                name.set("Common")
+                description.set("A library that provides common utilities and abstractions for Java applications.")
+                url.set("https://github.com/Moon-Powered/common")
+
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://opensource.org/license/mit/")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("kurai")
+                        name.set("kurai")
+                        email.set("unchatongo@gmail.com")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/Moon-Powered/common.git")
+                    developerConnection.set("scm:git:ssh://github.com/Moon-Powered/common.git")
+                    url.set("https://github.com/Moon-Powered/common")
+                }
+            }
         }
     }
 
     repositories {
         maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Moon-Powered/common")
+            name = "OSSRH"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("githubActor")
-                password = System.getenv("githubPassword")
+                username = System.getenv("OSSRH_USERNAME")
+                password = System.getenv("OSSRH_PASSWORD")
             }
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        System.getenv("GPG_PRIVATE_KEY"),
+        System.getenv("GPG_PRIVATE_PASSWORD")
+    )
+    sign(publishing.publications["common"])
 }
