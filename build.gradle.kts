@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "fr.moonpowered.common"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
