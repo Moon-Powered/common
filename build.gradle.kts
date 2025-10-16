@@ -41,7 +41,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/MoonPowered/common")
+            url = uri("https://maven.pkg.github.com/Moon-Powered/common")
             credentials {
                 username = System.getenv("githubActor")
                 password = System.getenv("githubPassword")
