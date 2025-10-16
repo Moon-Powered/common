@@ -36,5 +36,24 @@ publishing {
             artifactId = project.name
             version = project.version.toString()
         }
+
+        create<MavenPublication>("gpr") {
+            from(components["java"])
+
+            groupId = project.group.toString()
+            artifactId = project.name
+            version = project.version.toString()
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/MoonPowered/common")
+            credentials {
+                username = System.getenv("githubActor")
+                password = System.getenv("githubPassword")
+            }
+        }
     }
 }
