@@ -4,12 +4,12 @@ MoonPowered Common is a lightweight Java library that collects the cross-cutting
 
 ## Features
 
-- **Metadata interfaces** – Implement `Nameable`, `Describable`, `Iconable`, `Localizable`, `Identifiable`, `Keyed`, `Issuable`, and `Traceable` to express common traits on your domain objects without re-inventing boilerplate in each module.【F:src/main/java/fr/moonpowered/common/name/Nameable.java†L1-L7】【F:src/main/java/fr/moonpowered/common/description/Describable.java†L1-L7】【F:src/main/java/fr/moonpowered/common/icon/Iconable.java†L1-L7】【F:src/main/java/fr/moonpowered/common/locale/Localizable.java†L1-L9】【F:src/main/java/fr/moonpowered/common/identifier/Identifiable.java†L1-L7】【F:src/main/java/fr/moonpowered/common/key/Keyed.java†L1-L7】【F:src/main/java/fr/moonpowered/common/issuer/Issuable.java†L1-L7】【F:src/main/java/fr/moonpowered/common/trace/Traceable.java†L1-L7】
-- **Mutable extensions** – Optional `Mutable*` interfaces make it easy to expose safe mutators alongside the read-only traits when your domain requires them.【F:src/main/java/fr/moonpowered/common/name/impl/MutableNameable.java†L1-L13】【F:src/main/java/fr/moonpowered/common/identifier/impl/MutableIdentifiable.java†L1-L13】【F:src/main/java/fr/moonpowered/common/description/impl/MutableDescribable.java†L1-L13】【F:src/main/java/fr/moonpowered/common/icon/impl/MutableIconable.java†L1-L13】【F:src/main/java/fr/moonpowered/common/key/impl/MutableKeyed.java†L1-L13】【F:src/main/java/fr/moonpowered/common/locale/impl/MutableLocalizable.java†L1-L11】
-- **Declarative annotations** – Mark fields or components with lightweight annotations such as `@Name`, `@Identifier`, and `@Key` to surface intent and support reflection-based tooling.【F:src/main/java/fr/moonpowered/common/name/annotation/Name.java†L1-L11】【F:src/main/java/fr/moonpowered/common/identifier/annotation/Identifier.java†L1-L11】【F:src/main/java/fr/moonpowered/common/key/annotation/Key.java†L1-L11】
-- **Caching contract** – A generic `Cache` interface centralises basic CRUD-style operations, including convenience overloads for working with identifiable entities.【F:src/main/java/fr/moonpowered/common/cache/Cache.java†L1-L47】
-- **Factory and icon helpers** – Compose new objects through the simple `Factory` functional interface and supply icons that depend on the entity at runtime via `IconableEntity`.【F:src/main/java/fr/moonpowered/common/factory/Factory.java†L1-L7】【F:src/main/java/fr/moonpowered/common/icon/entity/IconableEntity.java†L1-L7】
-- **Symbol constants** – Reuse curated unicode glyphs for UI or messaging through the `Symbol` utility class.【F:src/main/java/fr/moonpowered/common/util/Symbol.java†L1-L79】
+- **Metadata interfaces** – Implement `Nameable`, `Describable`, `Iconable`, `Localizable`, `Identifiable`, `Keyed`, `Issuable`, and `Traceable` to express common traits on your domain objects without re-inventing boilerplate in each module.
+- **Mutable extensions** – Optional `Mutable*` interfaces make it easy to expose safe mutators alongside the read-only traits when your domain requires them.
+- **Declarative annotations** – Mark fields or components with lightweight annotations such as `@Name`, `@Identifier`, and `@Key` to surface intent and support reflection-based tooling.
+- **Caching contract** – A generic `Cache` interface centralises basic CRUD-style operations, including convenience overloads for working with identifiable entities.
+- **Factory and icon helpers** – Compose new objects through the simple `Factory` functional interface and supply icons that depend on the entity at runtime via `IconableEntity`.
+- **Symbol constants** – Reuse curated unicode glyphs for UI or messaging through the `Symbol` utility class.
 
 ## Project structure
 
@@ -35,7 +35,7 @@ MoonPowered Common is a lightweight Java library that collects the cross-cutting
 
 ### Prerequisites
 
-- Java 21 or newer (enforced via the Gradle toolchain configuration).【F:build.gradle.kts†L9-L11】
+- Java 21 or newer (enforced via the Gradle toolchain configuration).
 - Gradle 8+ (a Gradle wrapper is provided so you can simply run `./gradlew`).
 
 ### Building and testing
@@ -45,7 +45,7 @@ MoonPowered Common is a lightweight Java library that collects the cross-cutting
 ./gradlew test
 ```
 
-The build script already enables the JUnit 5 platform for the test task.【F:build.gradle.kts†L17-L24】
+The build script already enables the JUnit 5 platform for the test task.
 
 ### Using the library
 
@@ -62,7 +62,7 @@ dependencies {
 }
 ```
 
-The published coordinates and GitHub Packages repository match the Gradle `group`, `version`, and publishing configuration shipped in this project.【F:build.gradle.kts†L1-L44】
+The published coordinates and GitHub Packages repository match the Gradle `group`, `version`, and publishing configuration shipped in this project.
 
 #### Example
 
@@ -71,8 +71,7 @@ import fr.moonpowered.common.identifier.Identifiable;
 import fr.moonpowered.common.name.Nameable;
 import fr.moonpowered.common.description.Describable;
 
-public record GameItem(String id, String name, String description)
-    implements Identifiable<String>, Nameable<String>, Describable<String> {
+public interface GameItem extends Identifiable<String>, Nameable<String>, Describable<String> {
 }
 ```
 
@@ -80,7 +79,7 @@ Combine traits as needed to concisely express the contracts your domain objects 
 
 ## Publishing
 
-A ready-to-use Maven publication named `common` is configured for GitHub Packages. Provide the `githubActor` and `githubPassword` environment variables when running `./gradlew publish` to push a new version.【F:build.gradle.kts†L26-L44】
+A ready-to-use Maven publication named `common` is configured for GitHub Packages. Provide the `githubActor` and `githubPassword` environment variables when running `./gradlew publish` to push a new version.
 
 ## Contributing
 
