@@ -87,4 +87,4 @@ Issues and pull requests are welcome! When contributing new traits or utilities,
 
 ## License
 
-This repository does not currently declare a license. If you plan to use the code in a public or commercial setting, please contact the maintainers or open an issue to clarify licensing terms.
+This project is distributed under the terms specified in the repository's LICENSE file.
